@@ -1,0 +1,7 @@
+.main-page {
+  color: aliceblue;
+  background: blue;
+  flex: 1 1;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+}
