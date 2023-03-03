@@ -1,26 +1,26 @@
-import React, { useState, useRef } from "react";
-import "./style.css";
-import drum_roll from "../../../../assets/drum_roll.mp3";
-import chimes from "../../../../assets/chimes.mp3";
+import React, { useState, useRef } from 'react'
+import './style.css'
+import drum_roll from '../../../../assets/drum_roll.mp3'
+import chimes from '../../../../assets/chimes.mp3'
 
 const Post = () => {
-  const [currentTrack, setCurrentTrack] = useState(null);
+  const [currentTrack, setCurrentTrack] = useState(null)
   // const [currentTime, setCurrentTime] = useState(0);
-  const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
-  const audioRef = useRef(null);
+  const [currentTrackIndex, setCurrentTrackIndex] = useState(0)
+  const audioRef = useRef(null)
 
   const songs = [
     {
       id: 1,
-      name: "Track 1",
+      name: 'Track 1',
       src: drum_roll,
     },
     {
       id: 2,
-      name: "Track 2",
+      name: 'Track 2',
       src: chimes,
     },
-  ];
+  ]
 
   //   const handlePlay = (track) => {
   //     setCurrentTrack(track);
@@ -94,55 +94,58 @@ const Post = () => {
   //     </div>
   //   );
 
-  const [currentSongIndex, setCurrentSongIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentSongIndex, setCurrentSongIndex] = useState(0)
+  const [isPlaying, setIsPlaying] = useState(false)
 
-  const currentSong = songs[currentSongIndex];
+  const currentSong = songs[currentSongIndex]
 
   const handlePlay = (index) => {
-    setCurrentSongIndex(index);
-    setIsPlaying(true);
-  };
+    setCurrentSongIndex(index)
+    setIsPlaying(true)
+  }
 
   const handlePause = () => {
-    setIsPlaying(false);
-  };
+    setIsPlaying(false)
+  }
 
   const handlePrevious = () => {
     if (currentSongIndex === 0) {
-      setCurrentSongIndex(songs.length - 1);
+      setCurrentSongIndex(songs.length - 1)
     } else {
-      setCurrentSongIndex(currentSongIndex - 1);
+      setCurrentSongIndex(currentSongIndex - 1)
     }
-  };
+  }
 
   const handleNext = () => {
     if (currentSongIndex === songs.length - 1) {
-      setCurrentSongIndex(0);
+      setCurrentSongIndex(0)
     } else {
-      setCurrentSongIndex(currentSongIndex + 1);
+      setCurrentSongIndex(currentSongIndex + 1)
     }
-  };
-
+  }
+  console.log('Hello world')
   return (
     <div>
       <h1>Music Player</h1>
       <h2>Now Playing: {currentSong.name}</h2>
+      <audio src={songs[currentSongIndex].src}></audio>
       <ul>
-        {songs.map((song, index) => (
-          <li key={song.id}>
-            {song.name}{" "}
-            <button onClick={() => handlePlay(index)}>
-              {index === currentSongIndex && isPlaying ? "Pause" : "Play"}
-            </button>
-          </li>
-        ))}
+        {songs.map((song, index) => {
+          return (
+            <li key={song.id}>
+              {song.name}{' '}
+              <button onClick={() => handlePlay(index)}>
+                {index === currentSongIndex && isPlaying ? 'Pause' : 'Play'}
+              </button>
+            </li>
+          )
+        })}
       </ul>
       <button onClick={handlePrevious}>Previous</button>
-      <button onClick={handlePause}>{isPlaying ? "Pause" : "Play"}</button>
+      <button onClick={handlePause}>{isPlaying ? 'Pause' : 'Play'}</button>
       <button onClick={handleNext}>Next</button>
     </div>
-  );
-};
+  )
+}
 
-export default Post;
+export default Post

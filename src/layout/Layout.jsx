@@ -1,9 +1,9 @@
-import React from "react";
-import Sidebar from "../components/sidebar/Sidebar";
-import MainPage from "../components/mainside/MainPage";
-import { Link, Switch, Route } from "react-router-dom";
+import React from 'react'
+import Sidebar from '../components/sidebar/Sidebar'
+import MainPage from '../components/mainside/MainPage'
+import { Link, Switch, Route } from 'react-router-dom'
 
-import "./style.css";
+import './style.css'
 
 const Layout = () => {
   return (
@@ -11,7 +11,7 @@ const Layout = () => {
       <Sidebar />
       <MainPage />
     </div>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout
